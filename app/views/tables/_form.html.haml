@@ -1,0 +1,13 @@
+= form_for @tables do |f|
+  =f.label :table_number
+  =f.text_field :table_number, placeholder: "Name"
+  %br
+  =f.label :seats
+  =f.text_area :seats, placeholder: "Seats"
+  %br
+  =f.label :type
+  =f.integer :type, placeholder: "Table Type"
+  %br
+  =f.submit 
+%hr
+= link_to "home", root_path
