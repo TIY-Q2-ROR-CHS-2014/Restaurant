@@ -1,18 +1,18 @@
 = form_for @reservation do |f|
   =f.label :name
-  =f.string :name, placeholder: "Name"
+  =f.text_field :name, placeholder: "Name"
   %br
   =f.label :phone_number
-  =f.string :phone_number, placeholder: "Description"
+  =f.text_field :phone_number, placeholder: "Phone Number"
   %br
   =f.label :num_of_people
-  =f.integer :num_of_people, placeholder: "Number of People in your group"
+  =f.text_field :num_of_people, placeholder: "Number of People"
   %br
   =f.label :time
-  =f.string :time, placeholder: "Reservation Time"
+  =f.text_field :time, placeholder: "Time"
   %br
   =f.label :special_request
-  =f.text_area :special_request, placeholder: "Special Requests for your group"
+  =f.text_area :special_request, placeholder: "Special Requests"
   %br
   =f.submit 
 %hr
