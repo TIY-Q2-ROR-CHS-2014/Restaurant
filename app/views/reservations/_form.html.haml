@@ -1,0 +1,19 @@
+= form_for @reservation do |f|
+  =f.label :name
+  =f.text_field :name, placeholder: "Name"
+  %br
+  =f.label :phone_number
+  =f.text_area :phone_number, placeholder: "Description"
+  %br
+  =f.label :num_of_people
+  =f.integer :num_of_people, placeholder: "Description"
+  %br
+  =f.label :time
+  =f.text_area :time, placeholder: "Description"
+  %br
+  =f.label :special_request
+  =f.text_area :special_request, placeholder: "Description"
+  %br
+  =f.submit 
+%hr
+= link_to "home", root_path
