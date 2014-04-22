@@ -1,3 +1,15 @@
 %h2 Current Reservations
-
 = link_to "Add reservation", new_reservation_path
+%hr
+- @reservations.each do |reservation|
+      = link_to reservation.name, reservation_path(reservation)
+      = reservation.created_at.strftime("%l:%M%p")
+      | 
+      =reservation.time
+      |
+      = link_to "Edit", edit_reservation_path(reservation)
+      |
+      = link_to "Delete", reservation_path(reservation), method: :delete
+      |
+      %br
+      
