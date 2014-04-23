@@ -1,7 +1,7 @@
 .bodyhead
   %h2 Current Reservations
   = link_to "Add reservation", new_reservation_path
-  = link_to "Table", new_table_path
+  = link_to "Table", tables_path
   %hr
   .bodycontent
     - @reservations.each do |reservation|

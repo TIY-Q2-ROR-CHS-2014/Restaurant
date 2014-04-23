@@ -1,6 +1,10 @@
 class TablesController < ApplicationController
 	before_filter :find_table, only: [:show, :edit, :update, :destroy, :available, :reserved]
 	
+	def index
+		@tables = Table.all
+	end
+
 	def new
 		@table = Table.new
 	end
@@ -10,8 +14,8 @@ class TablesController < ApplicationController
 		success = @table.save
 		if success == true
 			flash[:notice]= "Table added OK."
-			# redirect_to tables_path
-			redirect_to root_path
+			redirect_to tables_path
+			# redirect_to root_path
 		else
 		    flash[:error]= "Error adding Table!"
 		    render :new
@@ -23,12 +27,12 @@ class TablesController < ApplicationController
 
 	def update
 		@table.update_attributes table_params
-		redirect_to tables_path(@table)
+		redirect_to tables_path
 	end
 
 	def destroy
 		@table.delete
-		redirect_to tables_path(@table)
+		redirect_to tables_path
 	end
 
 	def show
@@ -36,12 +40,12 @@ class TablesController < ApplicationController
 
 	def available
 		@table.available!
-		redirect_to tables_path(@table)
+		redirect_to tables_path
 	end
 
 	def reserved
 		@table.reserved!
-		redirect_to tables_path(@table)
+		redirect_to tables_path
 	end
 
 
