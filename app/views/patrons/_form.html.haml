@@ -1,0 +1,13 @@
+= form_for @patrons do |f|
+  =f.label :name
+  =f.integer :name, placeholder: "Name"
+  %br
+  =f.label :phone_number
+  =f.integer :phone_number, placeholder: "Phone Number"
+  %br
+  =f.submit 
+%hr
+
+= link_to "Add Patron", new_patron
+= link_to "Add Reservation", new_patron_reservation
+= link_to "home", root_path
