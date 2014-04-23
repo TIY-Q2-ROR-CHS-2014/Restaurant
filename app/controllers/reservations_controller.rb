@@ -3,7 +3,8 @@ class ReservationsController < ApplicationController
     
 
   def new
-    reservation = Reservation.new
+    @patron = Patron.find params[:patron_id]
+    @reservation = @patron.reservations.new
   end
 
   def create

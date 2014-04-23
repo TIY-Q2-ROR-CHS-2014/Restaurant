@@ -1,9 +1,16 @@
-= form_for @reservation do |f|
+= form_for [@patron , @reservation] do |f|
+    =f.hidden_field :patron_id, value: @patron.id
     =f.label :no_of_people
     =f.text_field :no_of_people, placeholder: "Number in Party"
     %br
-    =f.label :date 
-    = f.date_select :date, :order => [:month, :day, :year]
+    =f.label :reservation_date 
+    = f.date_select :reservation_date, :order => [:month, :day, :year]
+    %br
+    =f.label :table_id
+    =f.text_field :table_id, placeholder: "Table"
+    %br
+
+
     =f.submit 
 %hr
 = link_to "home", root_path
