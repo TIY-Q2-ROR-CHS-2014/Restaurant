@@ -1,6 +1,14 @@
 %h1 
   Patrons Information
-%br
-=render 'patron/form'
+= link_to "New Patron", new_patron_path
+%hr
+- @patrons.each do |patron|
+  = link_to patron.name, patron_path(patron)
+  |
+  = link_to "Edit", edit_patron_path(patron)
+  |
+  = link_to "Delete", patron_path(patron), method: :delete
+  |
+  %br
 
 

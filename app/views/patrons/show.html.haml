@@ -1,8 +1,15 @@
-%h3 Patron Information
-= @name
+%h2 Patron Information
 %br
-= @phone_number
+= link_to "New Reservation", new_patron_reservation_path(@patron)
+%hr
+= @patron.name
 %br
-
+= @patron.phone_number
+%br
+%hr
+%h3 Reservations
+- @patron.reservations.each do |reservation|
+  = reservation.reservation_date
+  %br
 
 = link_to 'Home', root_path
