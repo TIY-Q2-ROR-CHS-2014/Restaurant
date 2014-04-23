@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-	def index
+before_action :authenticate_user!
+  def index
 		@patrons = Patron.all
 		@reservations = Reservation.all
 	end
