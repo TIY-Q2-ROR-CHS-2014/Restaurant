@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 = form_for @table do |f|
   =f.label :table_number
   =f.text_field :table_number, placeholder: "Table Number"
@@ -14,18 +13,3 @@
 = link_to "home", tables_path(@table)
 
 
-=======
-= form_for @tables do |f|
-  =f.label :table_number
-  =f.integer :table_number, placeholder: "Table Number"
-  %br
-  =f.label :seats
-  =f.integer :seats, placeholder: "Seats at table"
-  %br
-  =f.label :type
-  =f.string :type, placeholder: "Table Type"
-  %br
-  =f.submit 
-%hr
-= link_to "home", root_path
->>>>>>> upstream/master
