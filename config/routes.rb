@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-root 'home#index'
+  root 'home#index'
 
-resources :reservations
+  resources :patrons do
+    resources :reservations
+  end
 
-resources :tables
-
+  resources :tables do
+    resources :reservations
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
