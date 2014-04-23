@@ -1,5 +1,5 @@
-class ReservationsController < ApplicationController
-    before_filter
+class PatronsController < ApplicationController
+  before_filter
 
   def new
   end
