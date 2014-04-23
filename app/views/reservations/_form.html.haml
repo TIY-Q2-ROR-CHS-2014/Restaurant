@@ -1,0 +1,10 @@
+= form_for @reservation do |f|
+    =f.label :no_of_people
+    =f.text_field :no_of_people, placeholder: "Number in Party"
+    %br
+    =f.label :date 
+    = f.date_select :date, :order => [:month, :day, :year]
+    =f.submit 
+%hr
+= link_to "home", root_path
+
