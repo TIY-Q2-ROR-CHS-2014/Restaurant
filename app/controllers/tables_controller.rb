@@ -1,4 +1,5 @@
 class TablesController < ApplicationController
+	before_action :authenticate_user!
 	before_filter :find_table, only: [:show, :edit, :update, :destroy, :available, :reserved]
 	
 	def index

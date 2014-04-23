@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-	def index
+	before_action :authenticate_user!
+  def index
 		@tables = Table.all
 		@reservations = Reservation.all
 
