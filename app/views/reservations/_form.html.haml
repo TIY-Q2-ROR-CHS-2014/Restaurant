@@ -1,22 +1,25 @@
-= form_for @reservation do |f|
-  =f.label :name
-  =f.text_field :name, placeholder: "Name"
-  %br
-  =f.label :phone_number
-  =f.text_field :phone_number, placeholder: "Phone Number"
-  %br
-  =f.label :num_of_people
-  =f.text_field :num_of_people, placeholder: "Number of People"
-  %br
-  =f.label :date 
-  = f.date_select :date, :order => [:month, :day, :year]
-  =f.label :time
-  =f.text_field :time, placeholder: "Time"
-  %br
-  =f.label :special_request
-  =f.text_area :special_request, placeholder: "Special Requests"
-  %br
-  =f.submit 
+.bodyhead
+  %h1 New Reservation
+.bodycontent
+  = form_for @reservation do |f|
+    =f.label :name
+    =f.text_field :name, placeholder: "Name"
+    %br
+    =f.label :phone_number
+    =f.text_field :phone_number, placeholder: "Phone Number"
+    %br
+    =f.label :num_of_people
+    =f.text_field :num_of_people, placeholder: "Number of People"
+    %br
+    =f.label :date 
+    = f.date_select :date, :order => [:month, :day, :year]
+    =f.label :time
+    =f.text_field :time, placeholder: "Time"
+    %br
+    =f.label :special_request
+    =f.text_area :special_request, placeholder: "Special Requests"
+    %br
+    =f.submit 
 %hr
 = link_to "home", root_path
 

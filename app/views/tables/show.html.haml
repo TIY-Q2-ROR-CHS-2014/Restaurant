@@ -1,9 +1,13 @@
-%h3 Table Information
-= @table.table_number
-%br
-= @table.seats
-%br
-= @table.type
-%br
+.bodyhead
+  %h3 Table Information
+  = link_to "Add Table", new_table_path
+.bodycontent
+  = @tables.table_number
+  %br
+  = @tables.seats
+  %br
+  = @tables.tbl_typ
+  %br
 
+= link_to 'Cancel', tables_path
 = link_to 'Home', root_path
