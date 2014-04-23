@@ -1,14 +1,16 @@
 class TablesController < ApplicationController
-
+	before_filter :find_table, only: [:show, :edit, :update, :destroy, :available, :reserved]
+	
 	def new
-		@table = Table.new
+		@tables = Table.new
 	end
 
 	def create
-		@table = Table.new table_params
-		if @table.save
+		@table = Table.create table_params
+		success = @table.save
+		if success == true
 			flash[:notice]= "Table added OK."
-			redirect_to root_path
+			redirect_to tables_path(@table)
 		else
 		    flash[:error]= "Error adding Table!"
 		    render :new
@@ -16,34 +18,38 @@ class TablesController < ApplicationController
 	end
 
 	def edit
-		@table = Table.find params[:id]
-
 	end
 
 	def update
-		@table = Table.find params[:id]
 		@table.update_attributes table_params
-		redirect_to root_path
+		redirect_to tables_path(@table)
 	end
 
 	def destroy
-		@table = Table.find params[:id]
 		@table.delete
-		redirect_to root_path
+		redirect_to tables_path(@table)
 	end
 
 	def show
-		@table = Table.find params[:id]
+	end
 
+	def available
+		@table.available!
+		redirect_to tables_path(@table)
+	end
+
+	def reserved
+		@table.reserved!
+		redirect_to tables_path(@table)
 	end
 
 
-	private
+private
+	def find_table
+		@tables = Table.find params[:id]
+	end
 
-    def table_params
-      params.require(:table).permit(:table_number, :seats, :type)
-    end
-
-
-
+  def table_params
+    params.require(:table).permit(:table_number, :seats, :tbl_typ)
+  end
 end

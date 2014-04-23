@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	before_filter :find_reservation, only: [:show, :edit, :update, :destroy, :available, :reserved]
+	before_filter :find_reservation, only: [:show, :edit, :update, :destroy]
 	def new
 		@reservation = Reservation.new
 	end

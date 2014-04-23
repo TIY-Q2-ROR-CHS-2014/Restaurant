@@ -1,0 +1,15 @@
+= form_for @table do |f|
+  =f.label :table_number
+  =f.text_field :table_number, placeholder: "Table Number"
+  %br
+  =f.label :seats
+  =f.text_field :seats, placeholder: "Seats"
+  %br
+  =f.label :Table_Type
+  =f.text_field :tbl_typ, placeholder: "Type"
+  %br
+  =f.submit 
+%hr
+= link_to "home", tables_path(@table)
+
+
