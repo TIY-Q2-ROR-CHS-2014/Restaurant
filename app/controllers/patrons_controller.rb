@@ -22,7 +22,6 @@ class PatronsController < ApplicationController
 
   end
 
-
   def update
     if @patron.update_attributes patron_params
         flash[:notice] = "Patron successfully updated"
@@ -41,6 +40,7 @@ class PatronsController < ApplicationController
 
 
   def show
+    @patron = Patron.find params[:id]
   end
 
 
