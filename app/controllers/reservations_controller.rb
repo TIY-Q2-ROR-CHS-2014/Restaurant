@@ -4,7 +4,7 @@ before_action :authenticate_user!
     
 
   def new
-    @patron = Patron.find params[:patron_id]
+    @patron = Patron.find "2"
     @reservation = @patron.reservations.new
   end
 
