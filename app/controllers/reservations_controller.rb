@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
 before_action :authenticate_user!  
+  before_filter :find_table
   before_filter :find_reservation, only: [:show, :edit, :update, :destroy]
     
 
@@ -46,11 +47,14 @@ before_action :authenticate_user!
       @reservation = Reservation.find params[:id]
     end
 
+    def find_table
+      @table = Table.find params[:id]
+    end
+
     def reservation_params
       params.require(:reservation).permit(:patron_id, :table_id, :no_of_people, :reservation_date)
     end
 
 
   
-
 end

@@ -9,6 +9,10 @@
     =f.label :table_id
     =f.text_field :table_id, placeholder: "Table"
     %br
+    - @tables.each do |table|
+        = check_box_tag 'table[table_ids][]', table.id, @table.table_id.include?(table_id), {id: "table_id_#{table.id}"}
+        = label_tag "table_id_#{table.id}", table.seats
+        %br
 
 
     =f.submit 
