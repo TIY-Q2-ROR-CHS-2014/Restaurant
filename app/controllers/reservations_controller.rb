@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+before_action :authenticate_user!  
   before_filter :find_reservation, only: [:show, :edit, :update, :destroy]
     
 

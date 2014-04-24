@@ -1,4 +1,5 @@
 class PatronsController < ApplicationController
+before_action :authenticate_user!  
   before_filter :find_patron, only: [:show, :edit, :update, :destroy]
 
   def new
