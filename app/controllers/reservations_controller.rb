@@ -4,7 +4,7 @@ before_action :authenticate_user!
     
 
   def new
-    @patron = Patron.find "2"
+    @patron = Patron.find params[:patron_id]
     @reservation = @patron.reservations.new
   end
 
@@ -12,7 +12,7 @@ before_action :authenticate_user!
     @reservation = Reservation.new reservation_params
     if @reservation.save
         flash[:notice]= "Reservation added OK."
-        redirect_to root_path
+        redirect_to patron_path(params[:reservation][:patron_id])
     else
         flash[:error]= "Error adding Reservation!"
         render :new
