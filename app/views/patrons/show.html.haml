@@ -7,9 +7,16 @@
 = @patron.phone_number
 %br
 %hr
-%h3 Reservations
+%h3 Reservations:
 - @patron.reservations.each do |reservation|
   = reservation.reservation_date
+  &nbsp;&nbsp;
+  Table #:
+  = reservation.table.id
+  &nbsp;&nbsp;
+  People:
+  = reservation.no_of_people
+  %br
   %br
 
 = link_to 'Home', root_path
