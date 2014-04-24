@@ -4,14 +4,12 @@
     =f.text_field :no_of_people, placeholder: "Number in Party"
     %br
     =f.label :reservation_date 
-    = f.date_select :reservation_date, :order => [:month, :day, :year]
+    = f.datetime_select :reservation_date, :order => [:month, :day, :year]
     %br
     =f.label :table_id
     =f.text_field :table_id, placeholder: "Table"
     %br
 
-
     =f.submit 
 %hr
 = link_to "home", root_path
-

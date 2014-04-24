@@ -34,7 +34,7 @@ before_action :authenticate_user!
 
   def destroy
     @reservation.delete
-    redirect_to root_path
+    redirect_to patron_path(params[:patron_id])
   end
 
   def show

@@ -1,11 +1,14 @@
 %h2 Patron Information
 %br
+&nbsp;&nbsp;
 = link_to "New Reservation", new_patron_reservation_path(@patron)
+&nbsp;|&nbsp;
+= link_to 'Home', root_path
 %hr
-= @patron.name
-%br
-= @patron.phone_number
-%br
+%h4	
+  = @patron.name
+%h4	
+  = @patron.phone_number
 %hr
 %h3 Reservations:
 - @patron.reservations.each do |reservation|
@@ -16,7 +19,7 @@
   &nbsp;&nbsp;
   People:
   = reservation.no_of_people
+  &nbsp;&nbsp;
+  = link_to "Delete Reservation", patron_reservation_path(@patron, reservation), method: :delete
   %br
   %br
-
-= link_to 'Home', root_path
